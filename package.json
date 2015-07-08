@@ -1,0 +1,33 @@
+{
+  "name": "angular-media-events",
+  "version": "0.0.0",
+  "description": "angular directives for media events",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vernak2539/angular-media-events.git"
+  },
+  "keywords": [
+    "angular",
+    "media",
+    "events",
+    "dom"
+  ],
+  "author": "Alex Vernacchia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vernak2539/angular-media-events/issues"
+  },
+  "homepage": "https://github.com/vernak2539/angular-media-events",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-rimraf": "^0.1.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0"
+  }
+}

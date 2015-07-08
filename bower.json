@@ -1,0 +1,25 @@
+{
+  "name": "angular-media-events",
+  "homepage": "https://github.com/vernak2539/angular-media-events",
+  "description": "angular directives for media events",
+  "keywords": [
+    "angular",
+    "media",
+    "events",
+    "dom"
+  ],
+  "authors": [
+    "Alex Vernacchia"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.4.2"
+  }
+}
