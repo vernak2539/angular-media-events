@@ -44,10 +44,11 @@ angular.module('test', ['media-events']);
   <video
     ng-src="https://path/to/source"
     loaded-metadata="someFunction($event, attrs)" />
-</body>
 ```
 
+## Conributing
 
+Please feel free to contribute. Checkout [the guidelines][4]. I'm pretty responsive, if I say so myself, so hit me up.
 
 ####Tests
 
@@ -56,3 +57,4 @@ Coming soon
 [1]: https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Media_events
 [2]: https://developer.mozilla.org/en-US/docs/Web/Events/loadedmetadata
 [3]: #loadedmetadata
+[4]: https://github.com/vernak2539/angular-media-events/blob/master/CONTRIBUTING.md
