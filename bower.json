@@ -12,10 +12,19 @@
     "Alex Vernacchia"
   ],
   "license": "MIT",
+  "main": [
+    "./src/**",
+    "./dist/**"
+  ],
   "ignore": [
+    ".jshintrc",
     "**/.*",
-    "node_modules",
     "bower_components",
+    "CONTRIBUTING.md",
+    "gulpfile.js",
+    "index.html",
+    "node_modules",
+    "package.json",
     "test",
     "tests"
   ],
