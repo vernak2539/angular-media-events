@@ -1,6 +1,6 @@
 {
   "name": "angular-media-events",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "angular directives for media events",
   "scripts": {
     "test": "node ./node_modules/gulp/bin/gulp karma"
