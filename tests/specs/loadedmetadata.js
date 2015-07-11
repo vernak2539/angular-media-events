@@ -27,6 +27,7 @@
                 expect(attrs.width).toBeDefined();
                 expect(attrs.height).toBeDefined();
                 expect($event.bubbles).toBeDefined();
+                expect($event.type).toBe('loadedmetadata');
                 expect(test).toBe(testTxt);
                 done();
             };
