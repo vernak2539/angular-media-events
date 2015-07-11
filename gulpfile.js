@@ -52,5 +52,10 @@ gulp.task('jshint', function() {
 gulp.task('karma', ['jshint'], function(done) {
   karma.start({
     configFile: __dirname + '/karma.conf.js',
+    singleRun: true
   }, done);
+});
+
+gulp.task('watch', function() {
+  gulp.watch('./src/**', ['dist']);
 });
