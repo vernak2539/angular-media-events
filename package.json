@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "angular directives for media events",
   "scripts": {
-    "test": "gulp test"
+    "test": "node ./node_modules/gulp/bin/gulp karma"
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
     "events",
     "dom"
   ],
-  "author": "Alex Vernacchia",
+  "author": "Alex Vernacchia <alvernacchia@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vernak2539/angular-media-events/issues"
@@ -24,10 +24,16 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
+    "gulp-header": "^1.2.2",
     "gulp-jshint": "^1.11.2",
     "gulp-rename": "^1.2.2",
     "gulp-rimraf": "^0.1.1",
     "gulp-sourcemaps": "^1.5.2",
-    "gulp-uglify": "^1.2.0"
+    "gulp-uglify": "^1.2.0",
+    "jshint-stylish": "^2.0.1",
+    "karma": "^0.12.37",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-jasmine": "^0.3.6"
   }
 }
