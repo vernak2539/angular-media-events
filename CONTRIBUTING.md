@@ -14,4 +14,4 @@ Due to an issue with karma-sauce-launcher, it will not be easy to implement a CI
 1. Karma (`karma start`)
 2. Gulp task (`gulp karma`)
 3. In browser
-  * I suggest using [serve module][https://www.npmjs.com/package/serve] to serve this repo, then navigate to `'tests/index.html'`
+  * I suggest using [serve module](https://www.npmjs.com/package/serve) to serve this repo, then navigate to `'tests/index.html'`
