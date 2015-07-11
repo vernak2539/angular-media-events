@@ -35,7 +35,7 @@ angular.module('test', ['media-events']);
 
 * **available params** (in template):
   * anything in the scope
-  * `$event` (DOM Event object)
+  * `$event` (jqlite/jQuery Event object)
   * `attrs`
     * `width`
     * `height`
