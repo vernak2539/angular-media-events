@@ -1,6 +1,11 @@
-# Angular Media Events
+# Angular Media Events [![Build Status](https://travis-ci.org/vernak2539/angular-media-events.svg?branch=master)](https://travis-ci.org/vernak2539/angular-media-events)
 
 This library should introduce angular directives that respond to [events on media objects][1].
+
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/alvernacchia.svg)](https://saucelabs.com/u/alvernacchia)
+
+
+*Please note, the SauceLabs badge will show results for all tests run, not just master. If the build status is "passing" on the master branch, you can be sure that all these browser versions are passing.*
 
 #### Supported Events
 
