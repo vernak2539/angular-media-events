@@ -30,7 +30,7 @@
           scope: {
             $eval: jasmine.createSpy()
           }
-        }
+        };
       }));
 
       it('should be available', function() {
@@ -55,7 +55,7 @@
           expectedOptions = {
             $event: sampleOptions.$event,
             attrs: sampleOptions.attrs
-          }
+          };
 
           evalService.scopeEval(sampleOptions);
           expect(evalSpy.calls.count()).toBe(1);

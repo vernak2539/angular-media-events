@@ -20,7 +20,7 @@
           }
 
           scope.$eval(options.fn, locals);
-        }
+      };
       }
     ]);
 })();
