@@ -26,6 +26,7 @@ bower install angular-media-events
 
 ```js
 <script src="/bower_components/angular-media-events/dist/media-events.js"></script>
+// or
 <script src="/bower_components/angular-media-events/dist/media-events.min.js"></script>
 ```
 
@@ -45,6 +46,7 @@ angular.module('test', ['media-events']);
   * `attrs`
     * `width`
     * `height`
+  * **Note:** some videos do not return these attributes. I believe this is due to how it is encoded/what codec is used
 
 ```html
   <video
