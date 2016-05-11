@@ -92,4 +92,4 @@ Please feel free to contribute. Checkout [the guidelines][4]. I'm pretty respons
 [2]: https://developer.mozilla.org/en-US/docs/Web/Events/loadedmetadata
 [6]: https://developer.mozilla.org/en-US/docs/Web/Events/progress
 [7]: https://developer.mozilla.org/en-US/docs/Web/Events/pause
-[8]: #pause-(on-pause)
+[8]: #pause-on-pause
