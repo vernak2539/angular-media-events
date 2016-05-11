@@ -36,7 +36,7 @@ module.exports = function(config) {
       platform: 'Windows 8',
       version: '10'
     },
-    sl_chrome_osx: {
+    sl_firefox_osx: {
       base: 'SauceLabs',
       platform: 'OS X 10.11',
       browserName: 'firefox'
