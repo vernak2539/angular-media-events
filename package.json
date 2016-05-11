@@ -26,6 +26,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-header": "^1.2.2",
     "gulp-jshint": "^1.11.2",
+    "gulp-order": "^1.1.1",
     "gulp-rename": "^1.2.2",
     "gulp-rimraf": "^0.1.1",
     "gulp-sourcemaps": "^1.5.2",

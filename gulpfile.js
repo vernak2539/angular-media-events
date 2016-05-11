@@ -6,6 +6,7 @@ var gulp       = require('gulp');
 var header     = require('gulp-header');
 var jshint     = require('gulp-jshint');
 var karma      = require('karma').server;
+var order      = require('gulp-order');
 var pkg        = require('./package.json');
 var rename     = require('gulp-rename');
 var rimraf     = require('gulp-rimraf');
@@ -26,6 +27,10 @@ var banner = [
 
 gulp.task('dist', ['clean'], function() {
   gulp.src('./src/*.js')
+    .pipe(order([
+        'src/_module.js',
+        'src/**.js'
+    ]))
     .pipe(sourcemaps.init())
     .pipe(concat('media-events.js'))
     .pipe(header(banner, { pkg: pkg }))
