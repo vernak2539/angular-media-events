@@ -1,15 +1,36 @@
 /**
  * angular-media-events - angular directives for media events
  * @author Alex Vernacchia <alvernacchia@gmail.com>
- * @version 0.2.0
+ * @version 0.3.0
  * @repo https://github.com/vernak2539/angular-media-events
  * @license MIT
- * Created: Sat Jul 11 2015 20:52:41 GMT+0100 (BST)
+ * Created: Wed May 11 2016 13:12:01 GMT+0100 (GMT Summer Time)
  */
 (function() {
   'use strict';
 
-  angular.module('media-events', []);
+  angular
+    .module('media-events', [])
+    .service('eval-service', [
+      function() {
+        this.scopeEval = function(options) {
+          var scope;
+
+          options = options || {};
+          scope   = options.scope;
+
+          var locals = {
+            $event: options.$event
+          };
+
+          if(options.attrs) {
+            locals.attrs = options.attrs;
+          }
+
+          scope.$eval(options.fn, locals);
+      };
+      }
+    ]);
 })();
 
 (function() {
@@ -18,24 +39,50 @@
   angular
     .module('media-events')
     .directive('loadedMetadata', [
-      function() {
+      'eval-service',
+      function(evalService) {
         return {
           restrict: 'A',
           scope: true,
           link: function(scope, element, attrs) {
             element.on('loadedmetadata', function(event) {
               var locals = {
-                $event: event,
-                attrs: {
-                  width: this.videoWidth,
-                  height: this.videoHeight
-                }
+                width: this.videoWidth,
+                height: this.videoHeight
               };
 
-              // Need to figure out what an error looks like. PR would be great
-              // https://github.com/vernak2539/angular-media-events/issues/1
+              evalService.scopeEval({
+                scope: scope,
+                fn: attrs.loadedMetadata,
+                $event: event,
+                attrs: locals
+              });
+            });
+          }
+        };
+      }
+    ]);
 
-              scope.$eval(attrs.loadedMetadata, locals);
+})();
+
+(function() {
+  'use strict';
+
+  angular
+    .module('media-events')
+    .directive('onPause', [
+      'eval-service',
+      function(evalService) {
+        return {
+          restrict: 'A',
+          scope: true,
+          link: function(scope, element, attrs) {
+            element.on('pause', function(event) {
+              evalService.scopeEval({
+                scope: scope,
+                fn: attrs.onPause,
+                $event: event
+              });
             });
           }
         };
@@ -50,20 +97,23 @@
   angular
     .module('media-events')
     .directive('progress', [
-      function() {
+      'eval-service',
+      function(evalService) {
         return {
           restrict: 'A',
           scope: true,
           link: function(scope, element, attrs) {
             element.on('progress', function(event) {
               var locals = {
-                $event: event,
-                attrs: {
-                  buffered: this.buffered
-                }
+                buffered: this.buffered
               };
 
-              scope.$eval(attrs.progress, locals);
+              evalService.scopeEval({
+                scope: scope,
+                fn: attrs.progress,
+                $event: event,
+                attrs: locals
+              });
             });
           }
         };

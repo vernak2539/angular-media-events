@@ -13,6 +13,7 @@ This list should grow as time goes on.
 
 * [loadedmetadata][2] ([example][3])
 * [progress][6] ([example][5])
+* [pause][7] ([example][8])
 
 ## Setup
 
@@ -68,6 +69,18 @@ angular.module('test', ['media-events']);
     progress="someFunction($event, attrs)" />
 ```
 
+#### pause (on-pause)
+
+* **available params** (in template):
+  * anything in the scope
+  * `$event` (jqlite/jQuery Event object)
+
+```html
+  <video
+    ng-src="https://path/to/source"
+    on-pause="someFunction($event)" />
+```
+
 ## Conributing
 
 Please feel free to contribute. Checkout [the guidelines][4]. I'm pretty responsive, if I say so myself, so hit me up.
@@ -78,3 +91,5 @@ Please feel free to contribute. Checkout [the guidelines][4]. I'm pretty respons
 [5]: #progress
 [2]: https://developer.mozilla.org/en-US/docs/Web/Events/loadedmetadata
 [6]: https://developer.mozilla.org/en-US/docs/Web/Events/progress
+[7]: https://developer.mozilla.org/en-US/docs/Web/Events/pause
+[8]: #pause-(on-pause)
