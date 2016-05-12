@@ -1,0 +1,9 @@
+.*
+tests
+gulpfile.js
+node_modules
+coverage
+bower_components
+karma*.js
+bower.json
+src
