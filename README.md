@@ -17,13 +17,19 @@ This list should grow as time goes on.
 
 ## Setup
 
-#### Installing
+### Installing
 
+#### Bower
 ```
-bower install angular-media-events
+bower install angular-media-events --save
 ```
 
-#### Including
+#### NPM
+```
+npm install angular-media-events --save
+```
+
+### Including
 
 ```js
 <script src="/bower_components/angular-media-events/dist/media-events.js"></script>
@@ -31,15 +37,15 @@ bower install angular-media-events
 <script src="/bower_components/angular-media-events/dist/media-events.min.js"></script>
 ```
 
-#### Using in Angular
+### Using in Angular
 
 ```js
 angular.module('test', ['media-events']);
 ```
 
-##Events
+## Events
 
-#### loadedmetadata
+### loadedmetadata
 
 * **available params** (in template):
   * anything in the scope
@@ -55,7 +61,7 @@ angular.module('test', ['media-events']);
     loaded-metadata="someFunction($event, attrs)" />
 ```
 
-#### progress
+### progress
 
 * **available params** (in template):
   * anything in the scope
@@ -69,7 +75,7 @@ angular.module('test', ['media-events']);
     progress="someFunction($event, attrs)" />
 ```
 
-#### pause (on-pause)
+### pause (on-pause)
 
 * **available params** (in template):
   * anything in the scope
@@ -81,7 +87,7 @@ angular.module('test', ['media-events']);
     on-pause="someFunction($event)" />
 ```
 
-## Conributing
+## Contributing
 
 Please feel free to contribute. Checkout [the guidelines][4]. I'm pretty responsive, if I say so myself, so hit me up.
 

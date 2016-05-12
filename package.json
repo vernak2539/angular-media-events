@@ -2,6 +2,7 @@
   "name": "angular-media-events",
   "version": "0.3.0",
   "description": "angular directives for media events",
+  "main": "./dist/media-events.js",
   "scripts": {
     "test": "gulp jshint && karma start ./karma.conf-ci.js"
   },
