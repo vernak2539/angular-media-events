@@ -56,9 +56,7 @@ angular.module('test', ['media-events']);
   * **Note:** some videos do not return these attributes. I believe this is due to how it is encoded/what codec is used
 
 ```html
-  <video
-    ng-src="https://path/to/source"
-    loaded-metadata="someFunction($event, attrs)" />
+  <video ng-src="..." loaded-metadata="someFunction($event, attrs)" />
 ```
 
 ### progress
@@ -70,9 +68,7 @@ angular.module('test', ['media-events']);
     * `buffered`
 
 ```html
-  <video
-    ng-src="https://path/to/source"
-    progress="someFunction($event, attrs)" />
+  <video ng-src="..." progress="someFunction($event, attrs)" />
 ```
 
 ### pause (on-pause)
@@ -82,9 +78,7 @@ angular.module('test', ['media-events']);
   * `$event` (jqlite/jQuery Event object)
 
 ```html
-  <video
-    ng-src="https://path/to/source"
-    on-pause="someFunction($event)" />
+  <video ng-src="..." on-pause="someFunction($event)" />
 ```
 
 ## Contributing
