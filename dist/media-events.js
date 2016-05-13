@@ -1,10 +1,10 @@
 /**
  * angular-media-events - angular directives for media events
  * @author Alex Vernacchia <alvernacchia@gmail.com>
- * @version 0.3.0
+ * @version 0.4.0
  * @repo https://github.com/vernak2539/angular-media-events
  * @license MIT
- * Created: Wed May 11 2016 13:12:01 GMT+0100 (GMT Summer Time)
+ * Created: Fri May 13 2016 11:35:17 GMT+0100 (GMT Summer Time)
  */
 (function() {
   'use strict';
@@ -89,6 +89,31 @@
       }
     ]);
 
+})();
+
+(function() {
+  'use strict';
+
+  angular
+    .module('media-events')
+    .directive('onPlay', [
+      'eval-service',
+      function(evalService) {
+        return {
+          restrict: 'A',
+          scope: true,
+          link: function(scope, element, attrs) {
+            element.on('play', function(event) {
+              evalService.scopeEval({
+                scope: scope,
+                fn: attrs.onPlay,
+                $event: event
+              });
+            });
+          }
+        };
+      }
+    ]);
 })();
 
 (function() {

@@ -13,6 +13,7 @@ This list should grow as time goes on.
 
 * [loadedmetadata][2] ([example][3])
 * [progress][6] ([example][5])
+* [play][9] ([example][10])
 * [pause][7] ([example][8])
 
 ## Setup
@@ -34,7 +35,7 @@ npm install angular-media-events --save
 ```js
 <script src="/bower_components/angular-media-events/dist/media-events.js"></script>
 // or
-<script src="/bower_components/angular-media-events/dist/media-events.min.js"></script>
+import 'angular-media-events';
 ```
 
 ### Using in Angular
@@ -71,6 +72,16 @@ angular.module('test', ['media-events']);
   <video ng-src="..." progress="someFunction($event, attrs)" />
 ```
 
+### play (on-play)
+
+* **available params** (in template):
+  * anything in the scope
+  * `$event` (jqlite/jQuery Event object)
+
+```html
+  <video ng-src="..." on-play="someFunction($event)" />
+```
+
 ### pause (on-pause)
 
 * **available params** (in template):
@@ -93,3 +104,5 @@ Please feel free to contribute. Checkout [the guidelines][4]. I'm pretty respons
 [6]: https://developer.mozilla.org/en-US/docs/Web/Events/progress
 [7]: https://developer.mozilla.org/en-US/docs/Web/Events/pause
 [8]: #pause-on-pause
+[9]: https://developer.mozilla.org/en-US/docs/Web/Events/play
+[10]: #play-on-play
