@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    describe('Directive - onPause', function() {
+    describe('Directive - onPlay', function() {
         var $compile;
         var evalService;
         var scope;
@@ -18,28 +18,25 @@
             videoURL    = 'https://scontent.cdninstagram.com/hphotos-xfa1/t50.2886-16/11726387_1613973172221601_1804343601_n.mp4';
         }));
 
-        it('should fire event when video is paused', function(done) {
+        it('should fire play event', function(done) {
             // Arrange
             var template, element;
 
             scope.callback = function($event) {
                 // Assert
-                expect($event.type).toBe('pause');
+                expect($event.type).toBe('play');
                 done();
             };
 
-            template = '<video ng-src="'+ videoURL +'" on-pause="callback($event)" />';
+            template = '<video ng-src="'+ videoURL +'" on-play="callback($event)" />';
             element  = $compile(template)(scope);
             scope.$digest();
 
             // Act
             element[0].play();
-            setTimeout(function() {
-                element[0].pause();
-            }, 500);
         });
 
-        it('should fire event with scope variables', function(done) {
+        it('should fire play event with scope variables', function(done) {
             // Arrange
             var template, element;
             var outsideVar = '<test>';
@@ -51,15 +48,12 @@
                 done();
             };
 
-            template = '<video ng-src="'+ videoURL +'" on-pause="callback(otherVar)" />';
+            template = '<video ng-src="'+ videoURL +'" on-play="callback(otherVar)" />';
             element  = $compile(template)(scope);
             scope.$digest();
 
             // Act
             element[0].play();
-            setTimeout(function() {
-                element[0].pause();
-            }, 500);
         });
     });
 })();
