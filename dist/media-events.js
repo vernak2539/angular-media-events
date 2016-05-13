@@ -1,10 +1,10 @@
 /**
  * angular-media-events - angular directives for media events
  * @author Alex Vernacchia <alvernacchia@gmail.com>
- * @version 0.4.0
+ * @version 0.5.0
  * @repo https://github.com/vernak2539/angular-media-events
  * @license MIT
- * Created: Fri May 13 2016 11:35:17 GMT+0100 (GMT Summer Time)
+ * Created: Fri May 13 2016 13:29:40 GMT+0100 (GMT Summer Time)
  */
 (function() {
   'use strict';
