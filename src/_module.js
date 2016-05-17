@@ -1,26 +1,15 @@
-(function() {
-  'use strict';
+'use strict';
 
-  angular
+import EvalService  from './eval-service';
+import LoadedMetadata from './loadedmetadata';
+import Progress from './progress';
+import Play from './play';
+import Pause from './pause';
+
+angular
     .module('media-events', [])
-    .service('eval-service', [
-      function() {
-        this.scopeEval = function(options) {
-          var scope;
-
-          options = options || {};
-          scope   = options.scope;
-
-          var locals = {
-            $event: options.$event
-          };
-
-          if(options.attrs) {
-            locals.attrs = options.attrs;
-          }
-
-          scope.$eval(options.fn, locals);
-      };
-      }
-    ]);
-})();
+    .service(EvalService.name, EvalService.main)
+    .directive(LoadedMetadata.name, LoadedMetadata.main)
+    .directive(Progress.name, Progress.main)
+    .directive(Play.name, Play.main)
+    .directive(Pause.name, Pause.main);
