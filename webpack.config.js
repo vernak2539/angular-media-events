@@ -1,3 +1,5 @@
+'use strict';
+
 var webpack = require('webpack');
 
 module.exports = {
@@ -9,6 +11,10 @@ module.exports = {
         path: __dirname + '/dist',
         filename: 'media-events.js'
     },
+    plugins: [
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin()
+    ],
     module: {
         loaders: [
             {
@@ -20,5 +26,6 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    devtool: 'source-map'
 };
