@@ -42,7 +42,7 @@
             scope.callback = callback;
             scope.test     = testTxt;
 
-            template = '<video ng-src="'+ videoURL +'" loaded-metadata="callback(attrs, $event, test)" />';
+            template = '<video ng-src="'+ videoURL +'" on-loaded-metadata="callback(attrs, $event, test)" />';
             element  = $compile(template)(scope);
             scope.$digest();
         });
