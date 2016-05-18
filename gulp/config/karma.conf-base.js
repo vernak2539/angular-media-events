@@ -2,7 +2,7 @@
 
 module.exports = function(config) {
   return {
-    basePath: '',
+    basePath: process.cwd(),
     frameworks: ['jasmine'],
     files: [
       'bower_components/angular/angular.js',

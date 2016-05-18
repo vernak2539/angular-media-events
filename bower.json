@@ -22,10 +22,10 @@
     "bower_components",
     "CONTRIBUTING.md",
     "gulpfile.js",
+    "gulp",
     "index.html",
     "node_modules",
     "package.json",
-    "test",
     "tests"
   ],
   "dependencies": {

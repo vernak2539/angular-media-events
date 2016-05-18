@@ -4,6 +4,6 @@ gulpfile.js
 node_modules
 coverage
 bower_components
-karma*.js
+gulp
 bower.json
 src
