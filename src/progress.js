@@ -1,29 +1,32 @@
-(function() {
-  'use strict';
+'use strict';
 
-  angular
-    .module('media-events')
-    .directive('progress', [
-      'eval-service',
-      function(evalService) {
-        return {
-          restrict: 'A',
-          scope: true,
-          link: function(scope, element, attrs) {
-            element.on('progress', function(event) {
-              var locals = {
+import EvalService from './eval-service';
+
+const PROGRESS_DIRECTIVE_NAME = 'onProgress';
+
+const ProgressDirective = (evalService) => ({
+    restrict: 'A',
+    scope: true,
+    link(scope, element, attrs) {
+        element.on('progress', function(event) {
+            var locals = {
                 buffered: this.buffered
-              };
+            };
 
-              evalService.scopeEval({
+            evalService.scopeEval({
                 scope: scope,
-                fn: attrs.progress,
+                fn: attrs[PROGRESS_DIRECTIVE_NAME],
                 $event: event,
                 attrs: locals
-              });
             });
-          }
-        };
-      }
-    ]);
-})();
+        });
+    }
+});
+
+export default {
+    name: PROGRESS_DIRECTIVE_NAME,
+    main: [
+        EvalService.name,
+        ProgressDirective
+    ]
+};

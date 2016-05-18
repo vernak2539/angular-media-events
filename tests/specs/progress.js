@@ -40,7 +40,7 @@
           scope.callback = callback;
           scope.test     = testTxt;
 
-          template = '<video ng-src="'+ videoURL +'" progress="callback(attrs, $event, test)" />';
+          template = '<video ng-src="'+ videoURL +'" on-progress="callback(attrs, $event, test)" />';
           element  = $compile(template)(scope);
           scope.$digest();
       });

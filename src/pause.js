@@ -1,25 +1,27 @@
-(function() {
-  'use strict';
+'use strict';
 
-  angular
-    .module('media-events')
-    .directive('onPause', [
-      'eval-service',
-      function(evalService) {
-        return {
-          restrict: 'A',
-          scope: true,
-          link: function(scope, element, attrs) {
-            element.on('pause', function(event) {
-              evalService.scopeEval({
+import EvalService from './eval-service';
+
+const PAUSE_DIRECTIVE_NAME = 'onPause';
+
+const PauseDirective = (evalService) => ({
+    restrict: 'A',
+    scope: true,
+    link(scope, element, attrs) {
+        element.on('pause', (event) => {
+            evalService.scopeEval({
                 scope: scope,
-                fn: attrs.onPause,
+                fn: attrs[PAUSE_DIRECTIVE_NAME],
                 $event: event
-              });
             });
-          }
-        };
-      }
-    ]);
+        });
+    }
+});
 
-})();
+export default {
+    name: PAUSE_DIRECTIVE_NAME,
+    main: [
+        EvalService.name,
+        PauseDirective
+    ]
+};

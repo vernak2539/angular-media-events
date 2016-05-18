@@ -35,6 +35,9 @@ npm install angular-media-events --save
 ```js
 <script src="/bower_components/angular-media-events/dist/media-events.js"></script>
 // or
+
+// can add a var in the import which will be the module name for 
+// easy inclusion in other modules if desired
 import 'angular-media-events';
 ```
 
@@ -57,7 +60,7 @@ angular.module('test', ['media-events']);
   * **Note:** some videos do not return these attributes. I believe this is due to how it is encoded/what codec is used
 
 ```html
-  <video ng-src="..." loaded-metadata="someFunction($event, attrs)" />
+  <video ng-src="..." on-loaded-metadata="someFunction($event, attrs)" />
 ```
 
 ### progress
@@ -69,7 +72,7 @@ angular.module('test', ['media-events']);
     * `buffered`
 
 ```html
-  <video ng-src="..." progress="someFunction($event, attrs)" />
+  <video ng-src="..." on-progress="someFunction($event, attrs)" />
 ```
 
 ### play (on-play)
