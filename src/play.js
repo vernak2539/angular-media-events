@@ -11,7 +11,7 @@ const PlayDirective = (evalService) => ({
         element.on('play', (event) => {
             evalService.scopeEval({
                 scope: scope,
-                fn: attrs.onPlay,
+                fn: attrs[PLAY_DIRECTIVE_NAME],
                 $event: event
             });
         });

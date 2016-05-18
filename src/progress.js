@@ -2,7 +2,7 @@
 
 import EvalService from './eval-service';
 
-const PROGRESS_DIRECTIVE_NAME = 'progress';
+const PROGRESS_DIRECTIVE_NAME = 'onProgress';
 
 const ProgressDirective = (evalService) => ({
     restrict: 'A',
@@ -15,7 +15,7 @@ const ProgressDirective = (evalService) => ({
 
             evalService.scopeEval({
                 scope: scope,
-                fn: attrs.progress,
+                fn: attrs[PROGRESS_DIRECTIVE_NAME],
                 $event: event,
                 attrs: locals
             });

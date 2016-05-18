@@ -2,7 +2,7 @@
 
 import EvalService from './eval-service';
 
-const LOADED_METADATA_DIRECTIVE_NAME = 'loadedMetadata';
+const LOADED_METADATA_DIRECTIVE_NAME = 'onLoadedMetadata';
 
 const LoadedMetadataDirective = (evalService) => ({
     restrict: 'A',
@@ -16,7 +16,7 @@ const LoadedMetadataDirective = (evalService) => ({
 
             evalService.scopeEval({
                 scope: scope,
-                fn: attrs.loadedMetadata,
+                fn: attrs[LOADED_METADATA_DIRECTIVE_NAME],
                 $event: event,
                 attrs: locals
             });
