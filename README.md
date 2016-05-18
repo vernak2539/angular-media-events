@@ -35,6 +35,9 @@ npm install angular-media-events --save
 ```js
 <script src="/bower_components/angular-media-events/dist/media-events.js"></script>
 // or
+
+// can add a var in the import which will be the module name for 
+// easy inclusion in other modules if desired
 import 'angular-media-events';
 ```
 
