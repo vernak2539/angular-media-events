@@ -1,147 +1,293 @@
-/**
- * angular-media-events - angular directives for media events
- * @author Alex Vernacchia <alvernacchia@gmail.com>
- * @version 0.5.0
- * @repo https://github.com/vernak2539/angular-media-events
- * @license MIT
- * Created: Fri May 13 2016 13:29:40 GMT+0100 (GMT Summer Time)
- */
-(function() {
-  'use strict';
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
 
-  angular
-    .module('media-events', [])
-    .service('eval-service', [
-      function() {
-        this.scopeEval = function(options) {
-          var scope;
+	'use strict';
+	
+	var _evalService = __webpack_require__(1);
+	
+	var _evalService2 = _interopRequireDefault(_evalService);
+	
+	var _loadedmetadata = __webpack_require__(2);
+	
+	var _loadedmetadata2 = _interopRequireDefault(_loadedmetadata);
+	
+	var _progress = __webpack_require__(5);
+	
+	var _progress2 = _interopRequireDefault(_progress);
+	
+	var _play = __webpack_require__(4);
+	
+	var _play2 = _interopRequireDefault(_play);
+	
+	var _pause = __webpack_require__(3);
+	
+	var _pause2 = _interopRequireDefault(_pause);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var MODULE_NAME = 'media-events';
+	
+	angular.module(MODULE_NAME, []).service(_evalService2.default.name, _evalService2.default.main).directive(_loadedmetadata2.default.name, _loadedmetadata2.default.main).directive(_progress2.default.name, _progress2.default.main).directive(_play2.default.name, _play2.default.main).directive(_pause2.default.name, _pause2.default.main);
+	
+	module.exports = MODULE_NAME;
 
-          options = options || {};
-          scope   = options.scope;
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
 
-          var locals = {
-            $event: options.$event
-          };
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var EVAL_SERVICE_NAME = 'eval-service';
+	
+	var EvalService = function () {
+	    function EvalService() {
+	        _classCallCheck(this, EvalService);
+	    }
+	
+	    _createClass(EvalService, [{
+	        key: 'scopeEval',
+	        value: function scopeEval() {
+	            var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+	            var scope = options.scope;
+	            var locals = {
+	                $event: options.$event
+	            };
+	
+	            if (options.attrs) {
+	                locals.attrs = options.attrs;
+	            }
+	
+	            scope.$eval(options.fn, locals);
+	        }
+	    }]);
+	
+	    return EvalService;
+	}();
+	
+	exports.default = {
+	    name: EVAL_SERVICE_NAME,
+	    main: EvalService
+	};
 
-          if(options.attrs) {
-            locals.attrs = options.attrs;
-          }
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
 
-          scope.$eval(options.fn, locals);
-      };
-      }
-    ]);
-})();
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _evalService = __webpack_require__(1);
+	
+	var _evalService2 = _interopRequireDefault(_evalService);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var LOADED_METADATA_DIRECTIVE_NAME = 'onLoadedMetadata';
+	
+	var LoadedMetadataDirective = function LoadedMetadataDirective(evalService) {
+	    return {
+	        restrict: 'A',
+	        scope: true,
+	        link: function link(scope, element, attrs) {
+	            element.on('loadedmetadata', function (event) {
+	                var locals = {
+	                    width: this.videoWidth,
+	                    height: this.videoHeight
+	                };
+	
+	                evalService.scopeEval({
+	                    scope: scope,
+	                    fn: attrs[LOADED_METADATA_DIRECTIVE_NAME],
+	                    $event: event,
+	                    attrs: locals
+	                });
+	            });
+	        }
+	    };
+	};
+	
+	exports.default = {
+	    name: LOADED_METADATA_DIRECTIVE_NAME,
+	    main: [_evalService2.default.name, LoadedMetadataDirective]
+	};
 
-(function() {
-  'use strict';
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
 
-  angular
-    .module('media-events')
-    .directive('loadedMetadata', [
-      'eval-service',
-      function(evalService) {
-        return {
-          restrict: 'A',
-          scope: true,
-          link: function(scope, element, attrs) {
-            element.on('loadedmetadata', function(event) {
-              var locals = {
-                width: this.videoWidth,
-                height: this.videoHeight
-              };
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _evalService = __webpack_require__(1);
+	
+	var _evalService2 = _interopRequireDefault(_evalService);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var PAUSE_DIRECTIVE_NAME = 'onPause';
+	
+	var PauseDirective = function PauseDirective(evalService) {
+	    return {
+	        restrict: 'A',
+	        scope: true,
+	        link: function link(scope, element, attrs) {
+	            element.on('pause', function (event) {
+	                evalService.scopeEval({
+	                    scope: scope,
+	                    fn: attrs[PAUSE_DIRECTIVE_NAME],
+	                    $event: event
+	                });
+	            });
+	        }
+	    };
+	};
+	
+	exports.default = {
+	    name: PAUSE_DIRECTIVE_NAME,
+	    main: [_evalService2.default.name, PauseDirective]
+	};
 
-              evalService.scopeEval({
-                scope: scope,
-                fn: attrs.loadedMetadata,
-                $event: event,
-                attrs: locals
-              });
-            });
-          }
-        };
-      }
-    ]);
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
 
-})();
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _evalService = __webpack_require__(1);
+	
+	var _evalService2 = _interopRequireDefault(_evalService);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var PLAY_DIRECTIVE_NAME = 'onPlay';
+	
+	var PlayDirective = function PlayDirective(evalService) {
+	    return {
+	        restrict: 'A',
+	        scope: true,
+	        link: function link(scope, element, attrs) {
+	            element.on('play', function (event) {
+	                evalService.scopeEval({
+	                    scope: scope,
+	                    fn: attrs[PLAY_DIRECTIVE_NAME],
+	                    $event: event
+	                });
+	            });
+	        }
+	    };
+	};
+	
+	exports.default = {
+	    name: PLAY_DIRECTIVE_NAME,
+	    main: [_evalService2.default.name, PlayDirective]
+	};
 
-(function() {
-  'use strict';
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
 
-  angular
-    .module('media-events')
-    .directive('onPause', [
-      'eval-service',
-      function(evalService) {
-        return {
-          restrict: 'A',
-          scope: true,
-          link: function(scope, element, attrs) {
-            element.on('pause', function(event) {
-              evalService.scopeEval({
-                scope: scope,
-                fn: attrs.onPause,
-                $event: event
-              });
-            });
-          }
-        };
-      }
-    ]);
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _evalService = __webpack_require__(1);
+	
+	var _evalService2 = _interopRequireDefault(_evalService);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var PROGRESS_DIRECTIVE_NAME = 'onProgress';
+	
+	var ProgressDirective = function ProgressDirective(evalService) {
+	    return {
+	        restrict: 'A',
+	        scope: true,
+	        link: function link(scope, element, attrs) {
+	            element.on('progress', function (event) {
+	                var locals = {
+	                    buffered: this.buffered
+	                };
+	
+	                evalService.scopeEval({
+	                    scope: scope,
+	                    fn: attrs[PROGRESS_DIRECTIVE_NAME],
+	                    $event: event,
+	                    attrs: locals
+	                });
+	            });
+	        }
+	    };
+	};
+	
+	exports.default = {
+	    name: PROGRESS_DIRECTIVE_NAME,
+	    main: [_evalService2.default.name, ProgressDirective]
+	};
 
-})();
-
-(function() {
-  'use strict';
-
-  angular
-    .module('media-events')
-    .directive('onPlay', [
-      'eval-service',
-      function(evalService) {
-        return {
-          restrict: 'A',
-          scope: true,
-          link: function(scope, element, attrs) {
-            element.on('play', function(event) {
-              evalService.scopeEval({
-                scope: scope,
-                fn: attrs.onPlay,
-                $event: event
-              });
-            });
-          }
-        };
-      }
-    ]);
-})();
-
-(function() {
-  'use strict';
-
-  angular
-    .module('media-events')
-    .directive('progress', [
-      'eval-service',
-      function(evalService) {
-        return {
-          restrict: 'A',
-          scope: true,
-          link: function(scope, element, attrs) {
-            element.on('progress', function(event) {
-              var locals = {
-                buffered: this.buffered
-              };
-
-              evalService.scopeEval({
-                scope: scope,
-                fn: attrs.progress,
-                $event: event,
-                attrs: locals
-              });
-            });
-          }
-        };
-      }
-    ]);
-})();
+/***/ }
+/******/ ]);
+//# sourceMappingURL=media-events.js.map
