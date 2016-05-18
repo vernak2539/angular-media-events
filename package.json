@@ -5,7 +5,7 @@
   "main": "./dist/media-events.js",
   "scripts": {
     "test": "node ./node_modules/gulp/bin/gulp tests --ci",
-    "dev": "node ./node_modules/webpack/bin/webpack --watch"
+    "dev": "node ./node_modules/webpack/bin/webpack --config ./gulp/config/webpack.config.js --watch"
   },
   "repository": {
     "type": "git",
