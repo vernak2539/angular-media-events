@@ -11,7 +11,7 @@ const PauseDirective = (evalService) => ({
         element.on('pause', (event) => {
             evalService.scopeEval({
                 scope: scope,
-                fn: attrs.onPause,
+                fn: attrs[PAUSE_DIRECTIVE_NAME],
                 $event: event
             });
         });

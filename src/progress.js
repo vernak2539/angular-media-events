@@ -15,7 +15,7 @@ const ProgressDirective = (evalService) => ({
 
             evalService.scopeEval({
                 scope: scope,
-                fn: attrs.onProgress,
+                fn: attrs[PROGRESS_DIRECTIVE_NAME],
                 $event: event,
                 attrs: locals
             });

@@ -16,7 +16,7 @@ const LoadedMetadataDirective = (evalService) => ({
 
             evalService.scopeEval({
                 scope: scope,
-                fn: attrs.onLoadedMetadata,
+                fn: attrs[LOADED_METADATA_DIRECTIVE_NAME],
                 $event: event,
                 attrs: locals
             });
