@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - "4"
-before_script: npm install -g karma-cli bower gulp && bower install
+before_script: npm install -g bower && bower install
 matrix:
   fast_finish: true
 sudo: false

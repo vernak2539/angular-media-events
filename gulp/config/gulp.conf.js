@@ -2,6 +2,10 @@
 
 var path = require('path');
 
+function addCwd(relativePath) {
+    return path.join(process.cwd(), relativePath);
+}
+
 module.exports = {
     dirs: {
         src: {
@@ -14,9 +18,10 @@ module.exports = {
         }
     },
     karma: {
-        config: path.join(process.cwd(), './karma.conf.js')
+        dev: addCwd('./gulp/config/karma.conf.js'),
+        ci: addCwd('./gulp/config/karma.conf-ci.js')
     },
     webpack: {
-        config: path.join(process.cwd(), './webpack.config.js')
+        config: addCwd('./gulp/config/webpack.config.js')
     }
 };

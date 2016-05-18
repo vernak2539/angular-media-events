@@ -4,7 +4,7 @@
   "description": "angular directives for media events",
   "main": "./dist/media-events.js",
   "scripts": {
-    "test": "gulp ci && karma start ./karma.conf-ci.js",
+    "test": "node ./node_modules/gulp/bin/gulp tests --ci",
     "dev": "node ./node_modules/webpack/bin/webpack --watch"
   },
   "repository": {

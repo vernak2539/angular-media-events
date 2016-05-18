@@ -1,14 +1,15 @@
 'use strict';
 
+var path    = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    context: __dirname,
+    context: process.cwd(),
     entry: {
         app: './src/_module.js'
     },
     output: {
-        path: __dirname + '/dist',
+        path: path.join(process.cwd(), '/dist'),
         filename: 'media-events.js'
     },
     plugins: [

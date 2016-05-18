@@ -4,8 +4,10 @@ var karma = require('karma').server;
 
 module.exports = function(workflow, gulp, $, config) {
     workflow.subtask('karma', function(done) {
+        var configFile = (config.args.ci) ? config.karma.ci : config.karma.dev;
+
         return karma.start({
-            configFile: config.karma.config,
+            configFile: configFile,
             singleRun: true
         }, done);
     });
