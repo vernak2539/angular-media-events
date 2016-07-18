@@ -9,6 +9,7 @@ module.exports = {
         app: './src/_module.js'
     },
     output: {
+        libraryTarget: 'umd',
         path: path.join(process.cwd(), '/dist'),
         filename: 'media-events.js'
     },
