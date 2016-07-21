@@ -1,50 +1,71 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  describe('Directive - ended', function() {
-      var $compile;
-      var evalService;
-      var scope;
-      var videoURL;
+    describe('Directive - onEnded', function() {
+        var $compile;
+        var evalService;
+        var scope;
+        var videoURL;
 
-      beforeEach(function() {
-          module('media-events');
-      });
+        beforeEach(function() {
+            module('media-events');
+        });
 
-      beforeEach(inject(function($injector) {
-          $compile    = $injector.get('$compile');
-          evalService = $injector.get('eval-service');
-          scope       = $injector.get('$rootScope');
-          videoURL    = 'https://scontent.cdninstagram.com/hphotos-xfa1/t50.2886-16/11726387_1613973172221601_1804343601_n.mp4';
-      }));
+        beforeEach(inject(function($injector) {
+            $compile    = $injector.get('$compile');
+            evalService = $injector.get('eval-service');
+            scope       = $injector.get('$rootScope').$new();
+            videoURL    = 'https://scontent.cdninstagram.com/hphotos-xfa1/t50.2886-16/11726387_1613973172221601_1804343601_n.mp4';
+        }));
 
-      it('should fire ended event, use existing vars on scope', function(done) {
-          var callback;
-          var element;
-          var evalSpy;
-          var template;
-          var testTxt;
+        it('should fire event when video has ended', function(done) {
+            // Arrange
+            var template, element;
 
-          evalSpy = spyOn(evalService, 'scopeEval').and.callThrough();
+            scope.endedCb = function($event) {
+                // Assert
+                expect($event.type).toBe('ended');
+                done();
+            };
 
-          callback = function($event, test) {
-              expect($event.bubbles).toBeDefined();
-              expect($event.type).toBe('ended');
-              expect(test).toBe(testTxt);
-              expect(evalSpy.calls.count()).toBe(1);
-              done();
-          };
+            // loadedmetatdata has to fire first to get duration
+            scope.lmdCb = function() {
+              var video = element[0];
 
-          testTxt        = '<test>';
-          scope.callback = callback;
-          scope.test     = testTxt;
+              // Act
+              video.currentTime = video.duration - 0.02;
+              video.play();
+            };
 
-          template = '<video ng-src="'+ videoURL +'" on-ended="callback($event, test)" />';
-          element  = $compile(template)(scope);
-          scope.$digest();
+            template = '<video ng-src="'+ videoURL +'" on-loaded-metadata="lmdCb()"  on-ended="endedCb($event)" />';
+            element  = $compile(template)(scope);
+            scope.$digest();
+        });
 
-          // Act
-          element[0].play();
-      });
-  });
+        it('should fire event with scope variables', function(done) {
+            // Arrange
+            var template, element;
+            var outsideVar = '<test>';
+
+            scope.otherVar = outsideVar;
+            scope.endedCb = function(otherVar) {
+                // Assert
+                expect(otherVar).toBe(outsideVar);
+                done();
+            };
+
+            // loadedmetatdata has to fire first to get duration
+            scope.lmdCb = function() {
+              var video = element[0];
+
+              // Act
+              video.currentTime = video.duration - 0.02;
+              video.play();
+            };
+
+            template = '<video ng-src="'+ videoURL +'" on-loaded-metadata="lmdCb()"  on-ended="endedCb(otherVar)" />';
+            element  = $compile(template)(scope);
+            scope.$digest();
+        });
+    });
 })();
