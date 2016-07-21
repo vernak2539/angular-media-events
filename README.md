@@ -15,6 +15,7 @@ This list should grow as time goes on.
 * [progress][6] ([example][5])
 * [play][9] ([example][10])
 * [pause][7] ([example][8])
+* [ended][11] ([example][12])
 
 ## Setup
 
@@ -35,16 +36,15 @@ npm install angular-media-events --save
 ```js
 <script src="/bower_components/angular-media-events/dist/media-events.js"></script>
 // or
-
-// can add a var in the import which will be the module name for 
-// easy inclusion in other modules if desired
-import 'angular-media-events';
+import angularMediaEvents from 'angular-media-events';
 ```
 
 ### Using in Angular
 
 ```js
-angular.module('test', ['media-events']);
+angular.module('myApp', ['media-events']);
+// or
+angular.module('myApp', [angularMediaEvents]);
 ```
 
 ## Events
@@ -95,6 +95,16 @@ angular.module('test', ['media-events']);
   <video ng-src="..." on-pause="someFunction($event)" />
 ```
 
+### ended (on-ended)
+
+* **available params** (in template):
+  * anything in the scope
+  * `$event` (jqlite/jQuery Event object)
+
+```html
+  <video ng-src="..." on-ended="someFunction($event)" />
+```
+
 ## Contributing
 
 Please feel free to contribute. Checkout [the guidelines][4]. I'm pretty responsive, if I say so myself, so hit me up.
@@ -109,3 +119,5 @@ Please feel free to contribute. Checkout [the guidelines][4]. I'm pretty respons
 [8]: #pause-on-pause
 [9]: https://developer.mozilla.org/en-US/docs/Web/Events/play
 [10]: #play-on-play
+[11]: https://developer.mozilla.org/en-US/docs/Web/Events/ended
+[12]: #ended-on-ended
