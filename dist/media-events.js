@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -50,19 +60,23 @@
 	
 	var _evalService2 = _interopRequireDefault(_evalService);
 	
-	var _loadedmetadata = __webpack_require__(2);
+	var _loadedmetadata = __webpack_require__(3);
 	
 	var _loadedmetadata2 = _interopRequireDefault(_loadedmetadata);
 	
-	var _progress = __webpack_require__(5);
+	var _progress = __webpack_require__(6);
 	
 	var _progress2 = _interopRequireDefault(_progress);
 	
-	var _play = __webpack_require__(4);
+	var _ended = __webpack_require__(2);
+	
+	var _ended2 = _interopRequireDefault(_ended);
+	
+	var _play = __webpack_require__(5);
 	
 	var _play2 = _interopRequireDefault(_play);
 	
-	var _pause = __webpack_require__(3);
+	var _pause = __webpack_require__(4);
 	
 	var _pause2 = _interopRequireDefault(_pause);
 	
@@ -70,7 +84,7 @@
 	
 	var MODULE_NAME = 'media-events';
 	
-	angular.module(MODULE_NAME, []).service(_evalService2.default.name, _evalService2.default.main).directive(_loadedmetadata2.default.name, _loadedmetadata2.default.main).directive(_progress2.default.name, _progress2.default.main).directive(_play2.default.name, _play2.default.main).directive(_pause2.default.name, _pause2.default.main);
+	angular.module(MODULE_NAME, []).service(_evalService2.default.name, _evalService2.default.main).directive(_loadedmetadata2.default.name, _loadedmetadata2.default.main).directive(_progress2.default.name, _progress2.default.main).directive(_ended2.default.name, _ended2.default.main).directive(_play2.default.name, _play2.default.main).directive(_pause2.default.name, _pause2.default.main);
 	
 	module.exports = MODULE_NAME;
 
@@ -137,6 +151,45 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var ENDED_DIRECTIVE_NAME = 'onEnded';
+	
+	var EndedDirective = function EndedDirective(evalService) {
+	    return {
+	        restrict: 'A',
+	        scope: true,
+	        link: function link(scope, element, attrs) {
+	            element.on('ended', function (event) {
+	                evalService.scopeEval({
+	                    scope: scope,
+	                    fn: attrs[ENDED_DIRECTIVE_NAME],
+	                    $event: event
+	                });
+	            });
+	        }
+	    };
+	};
+	
+	exports.default = {
+	    name: ENDED_DIRECTIVE_NAME,
+	    main: [_evalService2.default.name, EndedDirective]
+	};
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _evalService = __webpack_require__(1);
+	
+	var _evalService2 = _interopRequireDefault(_evalService);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	var LOADED_METADATA_DIRECTIVE_NAME = 'onLoadedMetadata';
 	
 	var LoadedMetadataDirective = function LoadedMetadataDirective(evalService) {
@@ -167,7 +220,7 @@
 	};
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -206,7 +259,7 @@
 	};
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -245,7 +298,7 @@
 	};
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -289,5 +342,7 @@
 	};
 
 /***/ }
-/******/ ]);
+/******/ ])
+});
+;
 //# sourceMappingURL=media-events.js.map
