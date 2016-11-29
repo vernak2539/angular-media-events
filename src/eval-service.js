@@ -1,5 +1,3 @@
-'use strict';
-
 const EVAL_SERVICE_NAME = 'eval-service';
 
 class EvalService {
@@ -9,11 +7,13 @@ class EvalService {
             $event: options.$event
         };
 
-        if(options.attrs) {
+        if (options.attrs) {
             locals.attrs = options.attrs;
         }
 
-        scope.$eval(options.fn, locals);
+        scope.$apply(() => {
+            scope.$eval(options.fn, locals);
+        });
     }
 }
 
