@@ -112,7 +112,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _createClass(EvalService, [{
 	        key: 'scopeEval',
 	        value: function scopeEval() {
-	            var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	            var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	
 	            var scope = options.scope;
 	            var locals = {
