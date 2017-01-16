@@ -13,8 +13,7 @@
   ],
   "license": "MIT",
   "main": [
-    "./src/**",
-    "./dist/**"
+    "./dist/media-events.js"
   ],
   "ignore": [
     ".jshintrc",
