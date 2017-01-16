@@ -13,7 +13,6 @@
   ],
   "license": "MIT",
   "main": [
-    "./src/**",
     "./dist/**"
   ],
   "ignore": [
