@@ -32,6 +32,7 @@
             $apply: function(fn) {
               fn();
             }
+          }
         };
       }));
 
