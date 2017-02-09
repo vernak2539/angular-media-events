@@ -28,8 +28,10 @@
           $event: '<event>',
           fn: '<fn>',
           scope: {
-            $eval: jasmine.createSpy()
-          }
+            $eval: jasmine.createSpy(),
+            $apply: function(fn) {
+              fn();
+            }
         };
       }));
 
