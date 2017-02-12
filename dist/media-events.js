@@ -123,7 +123,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	                locals.attrs = options.attrs;
 	            }
 	
-	            scope.$eval(options.fn, locals);
+	            scope.$apply(function () {
+	                scope.$eval(options.fn, locals);
+	            });
 	        }
 	    }]);
 	
