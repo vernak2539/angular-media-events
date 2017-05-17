@@ -34,17 +34,17 @@ module.exports = function(config) {
 			browserName: 'firefox',
 			platform: 'Windows 10'
 		},
-		sl_ie_13: {
+		sl_edge_14: {
 			base: 'SauceLabs',
-			browserName: 'internet explorer',
+			browserName: 'microsoft edge',
+			platform: 'Windows 10',
+			version: '14'
+		},
+		sl_edge_13: {
+			base: 'SauceLabs',
+			browserName: 'microsoft edge',
 			platform: 'Windows 10',
 			version: '13'
-		},
-		sl_ie_12: {
-			base: 'SauceLabs',
-			browserName: 'internet explorer',
-			platform: 'Windows 10',
-			version: '12'
 		},
 		sl_ie_11: {
 			base: 'SauceLabs',
