@@ -36,13 +36,13 @@ module.exports = function(config) {
 		},
 		sl_edge_14: {
 			base: 'SauceLabs',
-			browserName: 'edge',
+			browserName: 'MicrosoftEdge',
 			platform: 'Windows 10',
 			version: '14'
 		},
 		sl_edge_13: {
 			base: 'SauceLabs',
-			browserName: 'edge',
+			browserName: 'MicrosoftEdge',
 			platform: 'Windows 10',
 			version: '13'
 		},
