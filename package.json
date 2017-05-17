@@ -1,6 +1,6 @@
 {
   "name": "angular-media-events",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "angular directives for media events",
   "main": "./dist/media-events.js",
   "module": "./dist/media-events.es.js",

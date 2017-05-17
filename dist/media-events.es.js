@@ -1,9 +1,3 @@
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define(factory) :
-	(global.angularMediaEvents = factory());
-}(this, (function () { 'use strict';
-
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -192,7 +186,5 @@ var MODULE_NAME = 'media-events';
 
 angular.module(MODULE_NAME, []).service(EvalService$1.name, EvalService$1.main).directive(LoadedMetadata.name, LoadedMetadata.main).directive(Progress.name, Progress.main).directive(Ended.name, Ended.main).directive(Play.name, Play.main).directive(Pause.name, Pause.main);
 
-return MODULE_NAME;
-
-})));
-//# sourceMappingURL=media-events.js.map
+export default MODULE_NAME;
+//# sourceMappingURL=media-events.es.js.map
