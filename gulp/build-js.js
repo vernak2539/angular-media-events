@@ -1,12 +1,15 @@
 'use strict';
 
-var webpack = require('webpack');
+const rollup = require('rollup');
+const rollupConfig = require('./config/shared-config');
 
-module.exports = function(workflow, gulp, $, config) {
-    workflow.subtask('build:js', function(done) {
-        var webpackConfig = require(config.webpack.config);
-        var devWebpackCompiler = webpack(webpackConfig);
-
-        devWebpackCompiler.run(done);
-    });
+module.exports = workflow => {
+	workflow.subtask('build:js', () => {
+		return rollup
+			.rollup({
+				entry: rollupConfig.entry,
+				plugins: rollupConfig.plugins
+			})
+			.then(bundle => rollupConfig.targets.forEach(target => bundle.write(target)));
+	});
 };

@@ -1,9 +1,9 @@
 'use strict';
 
-var del = require('del');
+const del = require('del');
 
-module.exports = function(workflow, gulp, $, config) {
-    workflow.subtask('clean', function() {
-        del.sync(config.dirs.dist.folder);
-    });
+module.exports = (workflow, gulp, $, config) => {
+	workflow.subtask('clean', function() {
+		del.sync(config.dirs.dist.folder);
+	});
 };
