@@ -1,14 +1,19 @@
 'use strict';
 
-var karma = require('karma').server;
+var Server = require('karma').Server;
 
-module.exports = function(workflow, gulp, $, config) {
-    workflow.subtask('karma', function(done) {
-        var configFile = (config.args.ci) ? config.karma.ci : config.karma.dev;
+module.exports = (workflow, gulp, $, config) => {
+	workflow.subtask('karma', function(done) {
+		const configFile = config.args.ci ? config.karma.ci : config.karma.dev;
 
-        return karma.start({
-            configFile: configFile,
-            singleRun: true
-        }, done);
-    });
+		const server = new Server(
+			{
+				configFile: configFile,
+				singleRun: true
+			},
+			done
+		);
+
+		return server.start();
+	});
 };

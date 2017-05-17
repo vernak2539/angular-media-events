@@ -7,6 +7,12 @@ This library should introduce angular directives that respond to [events on medi
 
 *Please note, the SauceLabs badge will show results for all tests run, not just master. If the build status is "passing" on the master branch, you can be sure that all these browser versions are passing.*
 
+## \*\*To Rollup from Webpack\*\*
+
+v2 will use [rollup.js][13] to do packaging instead of webpack. This is due to the fact that webpack is better suited for application building,
+and rollup is better suited for library/module building. Please let me know if it doesn't work in any way.
+
+
 #### Supported Events
 
 This list should grow as time goes on.
@@ -42,8 +48,11 @@ import angularMediaEvents from 'angular-media-events';
 ### Using in Angular
 
 ```js
+// using script include
 angular.module('myApp', ['media-events']);
-// or
+angular.module('myApp', [window.angularMediaEvents]);
+
+// or using import
 angular.module('myApp', [angularMediaEvents]);
 ```
 
@@ -121,3 +130,4 @@ Please feel free to contribute. Checkout [the guidelines][4]. I'm pretty respons
 [10]: #play-on-play
 [11]: https://developer.mozilla.org/en-US/docs/Web/Events/ended
 [12]: #ended-on-ended
+[13]: https://rollupjs.org/
